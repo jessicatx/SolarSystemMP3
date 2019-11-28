@@ -39,20 +39,20 @@ namespace SolarSystemSimulation
                 {
                     running = true;
 
-                    Console.WriteLine("How many planets (1 to 9) [In addition to the Sun]?");
+                    Console.Write("How many planets (1 to 9) [In addition to the Sun]? ");
                     string numPlanet = "";
                     if (GetInt(out int num1, 1, 9, ref numPlanet))
                     {
 
                         planets = new PlanetarySystem(num1);
 
-                        Console.WriteLine("Simulation dt (ms) [1 to 1000]? (1 simulation dt (ms) = 1 day of actual time)");
+                        Console.Write("Simulation dt (ms) [1 to 1000]? (1 simulation dt (ms) = 1 day of actual time) ");
                         string time = "";
 
                         if (GetInt(out int interval, 1, 1000, ref time))
                         {
 
-                            Console.WriteLine("Simulation duration (how many dt's) [1 to 1000]?");
+                            Console.Write("Simulation duration (how many dt's) [1 to 1000]? ");
                             string numDt = Console.ReadLine().Trim();
 
                             if (GetInt(out int duration, 1, 1000, ref numDt))
