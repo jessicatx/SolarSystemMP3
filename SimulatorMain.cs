@@ -123,7 +123,6 @@ namespace SolarSystemSimulation
                     {
                         Console.WriteLine("At time: {0}", timer.GetSimulationTime());
 
-
                         planets.GetCurrentState(out string planetsData);
                         Console.WriteLine(planetsData);
                     }
