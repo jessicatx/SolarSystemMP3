@@ -60,6 +60,8 @@ namespace SolarSystemSimulation
 
                                 timer.SetTimer(planets, duration, interval);
 
+
+
                             }
                             else
                             {

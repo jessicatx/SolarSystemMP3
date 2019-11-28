@@ -37,7 +37,7 @@ namespace SolarSystemSimulation
 
         /// <summary>
         /// This method is called every simulationTimeInterval when the simulation is running. 
-        /// It must perform all necessary simulaation updates.
+        /// It must perform all necessary simulation updates.
         /// (A method for the timer event delagate: used for the discrete event simulation updates).
         /// </summary>
         private void UpdatePlanetsAndSimulationTime(Object source, System.Timers.ElapsedEventArgs e)
@@ -51,7 +51,7 @@ namespace SolarSystemSimulation
                 simulationTime -= simulationTimeInterval;
             }
 
-            Console.WriteLine("Time: {0}", simulationTime);
+            Console.WriteLine("At time: {0}", simulationTime);
 
             //stop simulation when duration is over
 
