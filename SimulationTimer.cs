@@ -42,8 +42,6 @@ namespace SolarSystemSimulation
         /// </summary>
         private void UpdatePlanetsAndSimulationTime(Object source, System.Timers.ElapsedEventArgs e)
         {
-            nPlanetsAndSun.UpdateAll();
-
             if(simulationTime < duration*simulationTimeInterval)
             {
                 simulationTime = GetSimulationTime() + duration;
@@ -53,6 +51,7 @@ namespace SolarSystemSimulation
                 timer.Stop();
                 return;
             }
+            nPlanetsAndSun.UpdateAll();
         }
 
         /// <summary>
