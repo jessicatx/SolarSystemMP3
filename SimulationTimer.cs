@@ -43,19 +43,16 @@ namespace SolarSystemSimulation
         private void UpdatePlanetsAndSimulationTime(Object source, System.Timers.ElapsedEventArgs e)
         {
             //Hint: you can implement this method without using "source" nor "e" in the method itself.
-
-            simulationTime = duration;
-
-            while (simulationTime != 0)
+            while (simulationTime < duration * simulationTimeInterval)
             {
-                simulationTime -= simulationTimeInterval;
-            }
 
-            Console.WriteLine("At time: {0}", simulationTime);
+                
+            }
+            nPlanetsAndSun.GetCurrentState(out string planetsData);
+           
 
             //stop simulation when duration is over
 
-            nPlanetsAndSun.GetCurrentState(out string planetsData);
             Console.WriteLine(planetsData);
             nPlanetsAndSun.UpdateAll();
 
@@ -68,7 +65,8 @@ namespace SolarSystemSimulation
         public double GetSimulationTime()
         {
             //To implement
-            return simulationTime;
+            
+            return simulationTime += duration;
 
         }
 

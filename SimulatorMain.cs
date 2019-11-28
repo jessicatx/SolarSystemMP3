@@ -43,7 +43,6 @@ namespace SolarSystemSimulation
                     string numPlanet = "";
                     if (GetInt(out int num1, 1, 9, ref numPlanet))
                     {
-
                         planets = new PlanetarySystem(num1);
 
                         Console.Write("Simulation dt (ms) [1 to 1000]? (1 simulation dt (ms) = 1 day of actual time) ");
@@ -57,6 +56,8 @@ namespace SolarSystemSimulation
 
                             if (GetInt(out int duration, 1, 1000, ref numDt))
                             {
+
+                                timer.SetTimer(planets, duration, interval);
                                 Console.WriteLine ("A new simulation of {0} planets initiated.", num1);
 
                             }
@@ -121,6 +122,8 @@ namespace SolarSystemSimulation
                     else
                     {
                         Console.WriteLine("At time: {0}", timer.GetSimulationTime());
+
+
                         planets.GetCurrentState(out string planetsData);
                         Console.WriteLine(planetsData);
                     }
