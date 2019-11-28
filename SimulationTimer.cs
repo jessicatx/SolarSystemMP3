@@ -43,17 +43,20 @@ namespace SolarSystemSimulation
         private void UpdatePlanetsAndSimulationTime(Object source, System.Timers.ElapsedEventArgs e)
         {
             //Hint: you can implement this method without using "source" nor "e" in the method itself.
-            //called every dt when timer is set 
-            simulationTime +=;
-            // update simulation time
+
+            simulationTime = duration;
+
+            while (simulationTime != 0)
+            {
+                simulationTime -= simulationTimeInterval;
+            }
+
             Console.WriteLine("Time: {0}", simulationTime);
 
-            // e.SignalTime; << why not this
             //stop simulation when duration is over
 
-            //calls updateAll
-            PlanetarySystem.UpdateAll();
-            //To implement
+            nPlanetsAndSun.UpdateAll();
+
         }
 
         /// <summary>
@@ -72,8 +75,9 @@ namespace SolarSystemSimulation
         /// </summary>
         public void Pause()
         {
-            //To implement
             timer.Stop();
+            timer.Enabled = false;
+
         }
 
         /// <summary>
@@ -81,8 +85,10 @@ namespace SolarSystemSimulation
         /// </summary>
         public void Resume()
         {
-            //To implement
             timer.Start();
+            timer.Enabled = true;
+
+            //more statements
         }
     }
 }
