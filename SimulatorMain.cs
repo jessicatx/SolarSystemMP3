@@ -53,14 +53,11 @@ namespace SolarSystemSimulation
                         {
 
                             Console.Write("Simulation duration (how many dt's) [1 to 1000]? ");
-                            string numDt = Console.ReadLine().Trim();
+                            string numDt = "";
 
                             if (GetInt(out int duration, 1, 1000, ref numDt))
                             {
-
-                                timer.SetTimer(planets, duration, interval);
-
-
+                                Console.WriteLine ("A new simulation of {0} planets initiated.", num1);
 
                             }
                             else
