@@ -43,19 +43,16 @@ namespace SolarSystemSimulation
         private void UpdatePlanetsAndSimulationTime(Object source, System.Timers.ElapsedEventArgs e)
         {
             nPlanetsAndSun.UpdateAll();
-            if (simulationTime < duration * simulationTimeInterval)
+
+            if(simulationTime < duration*simulationTimeInterval)
             {
                 simulationTime = GetSimulationTime() + duration;
             }
-            else if(simulationTime == duration * simulationTimeInterval)
+            if(GetSimulationTime()==duration*simulationTimeInterval)
             {
-                GetSimulationTime();
                 timer.Stop();
-               
-                  //stop the timer?
+                return;
             }
-                
-            //stop simulation when duration is over
         }
 
         /// <summary>
@@ -64,11 +61,7 @@ namespace SolarSystemSimulation
         /// <returns>Simulation time (not the real time)</returns>
         public double GetSimulationTime()
         {
-            //To implement
-            
             return simulationTime;
-           
-
         }
 
         /// <summary>
@@ -77,7 +70,6 @@ namespace SolarSystemSimulation
         public void Pause()
         {
             timer.Stop(); 
-
         }
 
         /// <summary>
@@ -86,7 +78,6 @@ namespace SolarSystemSimulation
         public void Resume()
         {
             timer.Start();
-            
         }
     }
 }

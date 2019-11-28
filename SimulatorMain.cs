@@ -56,7 +56,7 @@ namespace SolarSystemSimulation
 
                             if (GetInt(out int duration, 1, 1000, ref numDt))
                             {
-                                
+                                timer = new SimulationTimer();
                                 timer.SetTimer(planets, duration, interval);
                                 Console.WriteLine ("A new simulation of {0} planets initiated.", num1);
 
