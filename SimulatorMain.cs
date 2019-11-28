@@ -76,11 +76,9 @@ namespace SolarSystemSimulation
                         Console.WriteLine(numPlanet);
                     }
 
-                                   
                 }
                 else if (choice.StartsWith("p"))
                 {
-
                     if (!running)
                     {
                         Console.WriteLine("No simulation is running to be paused.");
@@ -91,7 +89,6 @@ namespace SolarSystemSimulation
                     }
                     else
                     {
-                   
                         timer.Pause();
                         Console.WriteLine("Simulation paused.");
                         paused = true;
@@ -110,7 +107,6 @@ namespace SolarSystemSimulation
                         timer.Resume();
                         Console.WriteLine("Simulation resumed.");
                         paused = false;
-
                     }
 
                 }
