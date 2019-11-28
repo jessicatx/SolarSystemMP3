@@ -43,21 +43,27 @@ namespace SolarSystemSimulation
                     string numPlanet = "";
                     if (GetInt(out int num1, 1, 9, ref numPlanet))
                     {
-                        SolarSystemSimulation.PlanetarySystem(num1);
+
+                        planets = new PlanetarySystem(num1);
 
                         Console.WriteLine("Simulation dt (ms) [1 to 1000]? (1 simulation dt (ms) = 1 day of actual time)");
                         string time = "";
-                        if (GetInt(out int num2, 1, 1000, ref time))
-                        {
-                            //Need to set the timer
 
+                        if (GetInt(out int interval, 1, 1000, ref time))
+                        {
 
                             Console.WriteLine("Simulation duration (how many dt's) [1 to 1000]?");
                             string numDt = Console.ReadLine().Trim();
 
-                            if (GetInt(out int num3, 1, 1000, ref numDt))
+                            if (GetInt(out int duration, 1, 1000, ref numDt))
                             {
-                                //need to create solar system
+
+                                timer.SetTimer(planets, duration, interval);
+
+                            }
+                            else
+                            {
+                                Console.WriteLine(numDt);
                             }
                         }
                         else
@@ -70,56 +76,59 @@ namespace SolarSystemSimulation
                         Console.WriteLine(numPlanet);
                     }
 
-                    //To implement               
+                                   
                 }
                 else if (choice.StartsWith("p"))
                 {
 
-                    if (running)
+                    if (!running)
                     {
                         Console.WriteLine("No simulation is running to be paused.");
                     }
+                    else if (paused)
+                    {
+                        Console.WriteLine("Already paused.");
+                    }
                     else
                     {
+                   
                         timer.Pause();
+                        paused = true;
                     }
 
-                    //More implementation
-
-                    //To implement
                 }
                 else if (choice.StartsWith("r"))
                 {
 
-                    if (paused)
+                    if (!paused)
                     {
                         Console.WriteLine("No simulation is paused to be resumed.");
                     }
                     else
                     {
-
                         timer.Resume();
+                        paused = false;
 
                     }
-                    //To implement
-                    //More implementation
 
                 }
                 else if (choice.StartsWith("g"))
                 {
 
-                    if (running)
+                    if (!running)
                     {
                         Console.WriteLine("No simulation is running.");
                     }
                     else
                     {
-                        timer.GetSimulationTime(); //is this how to initialize???
-                    }                               //im just trying to see the connection u can overwrite the code :) -jess
-                    //To implement
+                        Console.WriteLine("At time: {0}", timer.GetSimulationTime());
+                        planets.GetCurrentState(out string planetsData);
+                        Console.WriteLine(planetsData);
+                    }
                 }
                 else if (choice.StartsWith("q"))
                 {
+                    running = false;
                     break;
                 }
                 Console.WriteLine();
