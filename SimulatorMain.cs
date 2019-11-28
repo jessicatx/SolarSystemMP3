@@ -93,6 +93,7 @@ namespace SolarSystemSimulation
                     {
                    
                         timer.Pause();
+                        Console.WriteLine("Simulation paused.");
                         paused = true;
                     }
 
@@ -107,6 +108,7 @@ namespace SolarSystemSimulation
                     else
                     {
                         timer.Resume();
+                        Console.WriteLine("Simulation resumed.");
                         paused = false;
 
                     }
@@ -129,7 +131,6 @@ namespace SolarSystemSimulation
                 }
                 else if (choice.StartsWith("q"))
                 {
-                    running = false;
                     break;
                 }
                 Console.WriteLine();

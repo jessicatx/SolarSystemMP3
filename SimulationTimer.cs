@@ -55,10 +55,6 @@ namespace SolarSystemSimulation
                 
                 
             //stop simulation when duration is over
-
-
-
-
         }
 
         /// <summary>
@@ -79,7 +75,7 @@ namespace SolarSystemSimulation
         public void Pause()
         {
             timer.Stop();
-            timer.Enabled = false;
+            //timer.Enabled = false;
 
         }
 
@@ -89,9 +85,9 @@ namespace SolarSystemSimulation
         public void Resume()
         {
             timer.Start();
-            timer.Enabled = true;
+            //timer.Enabled = true;
 
-            //more statements
+            
         }
     }
 }
