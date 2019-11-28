@@ -42,7 +42,6 @@ namespace SolarSystemSimulation
         /// </summary>
         private void UpdatePlanetsAndSimulationTime(Object source, System.Timers.ElapsedEventArgs e)
         {
-            //Hint: you can implement this method without using "source" nor "e" in the method itself.
             nPlanetsAndSun.UpdateAll();
             if (simulationTime < duration * simulationTimeInterval)
             {
@@ -55,7 +54,6 @@ namespace SolarSystemSimulation
                
                   //stop the timer?
             }
-                
                 
             //stop simulation when duration is over
         }
@@ -78,8 +76,7 @@ namespace SolarSystemSimulation
         /// </summary>
         public void Pause()
         {
-            timer.Stop(); //this already set enabled to be false;
-            //timer.Enabled = false;
+            timer.Stop(); 
 
         }
 
@@ -88,9 +85,7 @@ namespace SolarSystemSimulation
         /// </summary>
         public void Resume()
         {
-            timer.Start();//this already set enable to be true
-            //timer.Enabled = true;
-
+            timer.Start();
             
         }
     }
