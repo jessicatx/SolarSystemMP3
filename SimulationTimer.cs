@@ -55,6 +55,8 @@ namespace SolarSystemSimulation
 
             //stop simulation when duration is over
 
+            nPlanetsAndSun.GetCurrentState(out string planetsData);
+            Console.WriteLine(planetsData);
             nPlanetsAndSun.UpdateAll();
 
         }
