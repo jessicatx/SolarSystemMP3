@@ -50,7 +50,9 @@ namespace SolarSystemSimulation
             }
             else if(simulationTime == duration * simulationTimeInterval)
             {
-                //stop the timer?
+                timer.Stop();
+               
+                  //stop the timer?
             }
                 
                 
@@ -66,6 +68,7 @@ namespace SolarSystemSimulation
             //To implement
             
             return simulationTime += duration;
+           
 
         }
 
@@ -74,7 +77,7 @@ namespace SolarSystemSimulation
         /// </summary>
         public void Pause()
         {
-            timer.Stop();
+            timer.Stop(); //this already set enabled to be false;
             //timer.Enabled = false;
 
         }
@@ -84,7 +87,7 @@ namespace SolarSystemSimulation
         /// </summary>
         public void Resume()
         {
-            timer.Start();
+            timer.Start();//this already set enable to be true
             //timer.Enabled = true;
 
             
