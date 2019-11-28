@@ -44,12 +44,13 @@ namespace SolarSystemSimulation
         {
             //Hint: you can implement this method without using "source" nor "e" in the method itself.
             nPlanetsAndSun.UpdateAll();
-            if (simulationTime <= duration * simulationTimeInterval)
+            if (simulationTime < duration * simulationTimeInterval)
             {
-                GetSimulationTime();
+                simulationTime = GetSimulationTime() + duration;
             }
             else if(simulationTime == duration * simulationTimeInterval)
             {
+                GetSimulationTime();
                 timer.Stop();
                
                   //stop the timer?
@@ -67,7 +68,7 @@ namespace SolarSystemSimulation
         {
             //To implement
             
-            return simulationTime += duration;
+            return simulationTime;
            
 
         }
